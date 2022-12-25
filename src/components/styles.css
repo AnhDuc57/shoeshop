@@ -21,9 +21,15 @@
     text-decoration: none;
     color: black;
 }
+.navbar-link-register:hover{
+    color: red;
+}
 .navbar-link-login {
     text-decoration: none;
     color: black;
+}
+.navbar-link-login:hover{
+    color: red;
 }
 .login-link {
     margin: 5px 0px;

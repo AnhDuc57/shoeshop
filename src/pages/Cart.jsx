@@ -200,17 +200,17 @@ const Cart = () => {
             <Hr />
             <Product>
               <ProductDetail>
-                <Image src="https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png" />
+                <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK1bvAHW8CGCVcHWyP_kB3EhV4gQ4r2NHntg&usqp=CAU" />
                 <Details>
                   <ProductName>
-                    <b>Product:</b> HAKURA T-SHIRT
+                    <b>Product:</b> JESSIE THUNDER SHOES
                   </ProductName>
                   <ProductId>
                     <b>ID:</b> 93813718293
                   </ProductId>
                   <ProductColor color="gray" />
                   <ProductSize>
-                    <b>Size:</b> M
+                    <b>Size:</b> 39
                   </ProductSize>
                 </Details>
               </ProductDetail>
