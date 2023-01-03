@@ -1,7 +1,7 @@
 import { useContext } from 'react';
+import { DataContext } from '../App';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { DataContext } from '../App';
 import { popularProducts } from '../data';
 import Product from './Product';
 
@@ -23,7 +23,7 @@ const Products = ({ router }) => {
             {data.map((item) => (
                 <Product
                     onClick={() => {
-                        nav('/detail', { state: item });
+                        nav('/detail/' + item._id, { state: item });
                         goToTop();
                     }}
                     item={item}

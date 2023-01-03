@@ -5,9 +5,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { mobile } from '../responsive';
 import './styles.css';
-import { useContext } from 'react';
-import { StateLoginContext, UserContext } from '../App';
-import { useState } from 'react';
 
 const Container = styled.div`
     height: 60px;
@@ -51,8 +48,9 @@ const Input = styled.input`
 `;
 
 const Center = styled.div`
-    flex: 1;
+    flex: 4;
     text-align: center;
+    margin: auto 16px;
     cursor: pointer;
     ${mobile({ fontSize: '24px' })}
 `;
@@ -71,48 +69,29 @@ const MenuItem = styled.div`
     margin-left: 25px;
     ${mobile({ fontSize: '12px', marginLeft: '10px' })}
 `;
-
-const Navbar = () => {
-    const { isLogin, setIsLogin } = useContext(StateLoginContext);
-    const { user, setUser } = useContext(UserContext);
-    console.log('is login:' + isLogin);
+const NavbarAdmin = () => {
     return (
         <Container>
             <Wrapper>
                 <Left>
-                    <Link className="navbar-link-logo" to="/">
-                        DC SHOP
+                    <Link className="navbar-link-logo" to="/admin">
+                        ADMIN
                     </Link>
                 </Left>
                 <Center>
-                    <SearchContainer>
-                        <Input placeholder="Search" />
-                        <Search style={{ color: 'gray', fontSize: 20 }} />
-                    </SearchContainer>
+                    <Link className ='navbaradmin-link'>Products</Link>
+                    <Link className ='navbaradmin-link'>Dashboard</Link>
+                    <Link className ='navbaradmin-link'>Categories</Link>
+                    <Link className ='navbaradmin-link'>Orders</Link>
+                    <Link className ='navbaradmin-link'>Users</Link>
+                    <Link className ='navbaradmin-link'>Sellers</Link>
                 </Center>
                 <Right>
-                    {!isLogin && (
-                        <Link className="navbar-link-register" to="/register">
-                            REGISTER
-                        </Link>
-                    )}
-                    {!isLogin && (
-                        <Link className="navbar-link-login" to="/login">
-                            SIGN IN
-                        </Link>
-                    )}
-                    {isLogin && <Link className="navbar-link-login">Hello {user?.name}</Link>}
-                    <MenuItem>
-                        <Badge badgeContent={2} color="primary">
-                            <Link to="/cart">
-                                <ShoppingCartOutlined />
-                            </Link>
-                        </Badge>
-                    </MenuItem>
+                    <Link>Hi Admin !</Link>
                 </Right>
             </Wrapper>
         </Container>
     );
 };
 
-export default Navbar;
+export default NavbarAdmin;

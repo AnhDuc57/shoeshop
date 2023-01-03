@@ -1,14 +1,14 @@
 .slider-link-button {
     padding: 10px;
     font-size: 20px;
+    color: black;
     background-color: transparent;
     cursor: pointer;
     text-decoration: none;
     border-style: solid;
-    border-width: 1px;
+    border-width: 2px;
     border-color: black;
     font-weight: bold;
-
 }
 .navbar-link-logo {
     font-weight: bold;
@@ -21,14 +21,14 @@
     text-decoration: none;
     color: black;
 }
-.navbar-link-register:hover{
+.navbar-link-register:hover {
     color: red;
 }
 .navbar-link-login {
     text-decoration: none;
     color: black;
 }
-.navbar-link-login:hover{
+.navbar-link-login:hover {
     color: red;
 }
 .login-link {
@@ -45,10 +45,15 @@
     border: none;
     padding: 10px;
     background-color: white;
-    color: gray;
+    color: black;
     cursor: pointer;
     font-weight: 600;
     text-decoration: none;
+}
+.categoryitem-link-button:hover {
+    transition: all 0.5s ease;
+    background-color: #e9f5f5;
+    transform: scale(1.1);
 }
 .register-link-button {
     width: 40%;
@@ -81,16 +86,27 @@
     text-decoration: none;
     color: black;
 }
-.product-link-button-add{
+.product-link-button-add {
     padding: 15px;
     border: 2px solid teal;
     background-color: white;
     cursor: pointer;
     font-weight: 500;
     text-decoration: none;
-
-
 }
-.product-link-button-add:hover{
+.product-link-button-add:hover {
     background-color: #f8f4f4;
+}
+.footer-link-home {
+    text-decoration: none;
+}
+.navbaradmin-link{
+    text-decoration: none;
+    margin: 0 20px;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+.navbaradmin-link:hover {
+    color: red;
 }

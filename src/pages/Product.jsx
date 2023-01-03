@@ -1,13 +1,13 @@
 import { Add, Remove } from '@material-ui/icons';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import Announcement from '../components/Announcement';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import Newsletter from '../components/Newsletter';
 import { mobile } from '../responsive';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import '../components/styles.css';
 
 const Container = styled.div``;
@@ -107,23 +107,29 @@ const Amount = styled.span`
     margin: 0px 5px;
 `;
 
-
-
-const Product = ({}) => {
+const Product = () => {
     const [quantity, setQuantity] = useState(1);
     const [product, setProduct] = useState({
         id: 'SH001',
         title: 'Nike 121',
         description: '',
         price: 20,
-        color: ['blue', 'black', 'green'],
+        colors: ['blue', 'black', 'green'],
         image: '',
-        size: [37, 38, 39],
+        sizes: [37, 38, 39],
     });
 
-    const location = useLocation();
+    const param = useParams();
     useEffect(() => {
-        setProduct(location.state);
+        console.log('ID:', param);
+        fetch('http://localhost:3001/products/' + param.id, {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+            },
+        })
+            .then((res) => res.json())
+            .then((json) => setProduct(json))
+            .catch((e) => console.log(e));
     }, product);
 
     return (
@@ -141,14 +147,17 @@ const Product = ({}) => {
                     <FilterContainer>
                         <Filter>
                             <FilterTitle>Color</FilterTitle>
-                            {product.color.map((color) => (
-                                <FilterColor color={color} />
-                            ))}
+                            <FilterSize>
+                                {product.colors.map((color) => {
+                                    console.log(color);
+                                    return <FilterSizeOption>{color}</FilterSizeOption>;
+                                })}
+                            </FilterSize>
                         </Filter>
                         <Filter>
                             <FilterTitle>Size</FilterTitle>
                             <FilterSize>
-                                {product.size.map((s) => (
+                                {product.sizes.map((s) => (
                                     <FilterSizeOption>{s}</FilterSizeOption>
                                 ))}
                             </FilterSize>
@@ -166,7 +175,9 @@ const Product = ({}) => {
                             <Amount>{quantity}</Amount>
                             <Add onClick={() => setQuantity(quantity + 1)} />
                         </AmountContainer>
-                        <Link className='product-link-button-add' to='/cart'>ADD TO CART</Link>
+                        <Link className="product-link-button-add" to="/cart">
+                            ADD TO CART
+                        </Link>
                     </AddContainer>
                 </InfoContainer>
             </Wrapper>
